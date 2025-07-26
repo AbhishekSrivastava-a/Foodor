@@ -1,4 +1,4 @@
-import SignInFoodor from '../../assets/Foodor_t.png';
+import SignInFoodor from '../../assets/Foodor.png';
 
 
 
@@ -10,7 +10,7 @@ const SignIn=() => {
           <img
             alt="Foodor"
             src={SignInFoodor}
-            className="mx-auto h-10 w-auto"
+            className="mx-auto h-45 w-auto"
           />
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
             Sign in to your account
