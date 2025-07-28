@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { loadCartFromLocalStorage } from "../../utils/localStorage"
 
-// Define the initial state for the cart slice
-const initialState = {
-  items: {}, // Use an object to store items by ID for efficient lookups
-  totalItems: 0, // Keep track of the total number of items
+const defaultState = {
+  items: {},
+  totalItems: 0,
 };
+
+const initialState = loadCartFromLocalStorage() || defaultState;
+
 
 // Create a Redux slice for cart management
 export const cartSlice = createSlice({
@@ -51,5 +54,4 @@ export const cartSlice = createSlice({
 // Export the action creators for use in components
 export const { addItem, removeItem, clearCart } = cartSlice.actions;
 
-// Export the reducer to be included in the store
 export default cartSlice.reducer;

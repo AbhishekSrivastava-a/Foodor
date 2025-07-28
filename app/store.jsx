@@ -1,10 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from '../src/features/cart/cartSlice'
+import { saveCartToLocalStorage } from "../src/utils/localStorage";
 
-// Configure the Redux store
+
 export const store = configureStore({
   reducer: {
-    // Add the cart reducer to the store
     cart: cartReducer,
   },
 });
+
+store.subscribe(() => {
+  const state = store.getState();
+  saveCartToLocalStorage(state.cart);
+});
+
+export default store;
